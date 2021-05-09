@@ -22,6 +22,12 @@ namespace Project2 {
             services.AddSpaStaticFiles(configuration => {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddCors(o => {
+                o.AddDefaultPolicy(b => {
+                    b.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,6 +37,8 @@ namespace Project2 {
             } else {
                 app.UseExceptionHandler("/Error");
             }
+
+            app.UseCors();
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
