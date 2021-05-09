@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Project2 {
     public class Program {
         public static void Main(string[] args) {
+            Data.OnStart();
             CreateHostBuilder(args).Build().Run();
         }
 
